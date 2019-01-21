@@ -1,0 +1,26 @@
+{"devices": [
+  {
+    "id": "device100",
+    "type": "smartphone",
+    "model": "iPhone 7",
+    "os": "iOS 12.1",
+    "screen": "5\"",
+    "icon":"iphone.png"
+  },
+  {
+    "id": "device101",
+    "type": "smartphone",
+    "model": "Samsung Galaxy S9+",
+    "os": "Android 8.0.0",
+    "screen": "9\"",
+    "icon": "android.png"
+  },
+  {
+    "id": "device102",
+    "type": "tablet",
+    "model": "iPad Pro",
+    "os": "iOS 12.0.1",
+    "screen": "10\"",
+    "icon": "ipad.png"
+  }
+]}

@@ -1,0 +1,36 @@
+{"staff":[
+  {
+    "id": "luke.skywalker",
+    "name": "Luke",
+    "lastname": "Skywalker",
+    "nickname": "Steve",
+    "team": "Jedi",
+    "position": "Senior Jedi Developer",
+    "img": ""
+  },
+  {
+    "id": "leia.skywalker",
+    "name": "Leia",
+    "nickname": "Princess",
+    "lastname": "Skywalker",
+    "team": "Jedi",
+    "position": "Senior Jedi Developer",
+    "img": ""
+  },
+  {
+    "id": "obiwan.kenobi",
+    "name": "Obi-Wan",
+    "lastname": "Kenobi",
+    "team": "Jedi",
+    "position": "Jedi Developer",
+    "img": ""
+  },
+  {
+    "id": "yoda",
+    "name": "Yoda",
+    "lastname": "",
+    "team": "Jedi",
+    "position": "Senior Jedi Developer",
+    "img": ""
+  }
+]}

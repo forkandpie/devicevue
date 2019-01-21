@@ -1,0 +1,12 @@
+{"log": [
+  {
+    "deviceId": "device100",
+    "personId": "yoda",
+    "date": "2019-01-14"
+  },
+  {
+    "deviceId": "device102",
+    "personId": "leia.skywalker",
+    "date": "2019-01-14"
+  }
+]}
