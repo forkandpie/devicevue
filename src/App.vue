@@ -81,8 +81,8 @@ body {
     </div>
 
     <div class="hidden_area">
-      <Devices v-bind:is-active="state.mode == 'devices'"/>
-      <Staff v-bind:is-active="state.mode == 'staff'"/>
+      <!-- <Devices v-bind:is-active="state.mode == 'devices'"/> -->
+      <!-- <Staff v-bind:is-active="state.mode == 'staff'"/> -->
       <Assign/>
     </div>
   </div>
@@ -91,6 +91,7 @@ body {
 <script lang="ts">
 import { Component, Vue } from 'vue-property-decorator';
 import Devices from './devices/Devices.vue';
+import DevicesScope from './devices/DevicesScope';
 import Staff from './staff/Staff.vue';
 import Assign from './assign/Assign.vue';
 import { Observer } from "mobx-vue";
@@ -106,6 +107,10 @@ import AppModel from './AppModel';
 })
 export default class App extends Vue {
   state:AppModel = new AppModel();
+
+  mounted() {
+    let devices = new DevicesScope();
+  }
 }
 
 /**

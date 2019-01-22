@@ -1,5 +1,6 @@
 <template>
-  <div v-if="this.isActive">
+  <!-- <div v-if="this.isActive"> -->
+  <div>
     <DevicesList
         v-bind:devices-list="state.devices"
         v-bind:select-device="state.selectDevice"
@@ -35,6 +36,7 @@ export default class Devices extends Vue {
   state:DeviceModel = new DeviceModel();
 
   created() {
+    console.log("created Devices");
     this.state.fetchDevices();
   }
 }
