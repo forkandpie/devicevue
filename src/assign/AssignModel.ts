@@ -10,13 +10,13 @@ export default class AssignModel {
       .then(response => response.log);
   }
 
-  getDevicesByPerson(personId: String):Array<any> {
-    return this.assignments
-      .filter(assignment => assignment.personId == personId);
-  }
+  // getDevicesByPerson(personId: String):Array<any> {
+  //   return this.assignments
+  //     .filter(assignment => assignment.personId == personId);
+  // }
 
-  getStaffByDevice(deviceId: String):Array<any> {
-    return this.assignments
-      .filter(assignment => assignment.deviceId == deviceId);
-  }
+  // getStaffByDevice(deviceId: String):Array<any> {
+  //   return this.assignments
+  //     .filter(assignment => assignment.deviceId == deviceId);
+  // }
 }

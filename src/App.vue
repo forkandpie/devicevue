@@ -1,3 +1,38 @@
+<template>
+  <div id="app">
+    
+    <aside class="sidebar">
+      <div class="buttons">
+        <button v-on:click="setMode('devices')">Devices</button>
+        <button v-on:click="setMode('staff')">Staff</button>
+      </div>
+      <portal-target name="dest-list">
+        here sidebar
+      </portal-target>
+    </aside>
+
+    <div class="content">
+      <portal-target name="dest-content">
+        here content 11
+      </portal-target>
+    </div>
+
+    <div class="hidden_area"></div>
+    <div class="hidden_area1"></div>
+  </div>
+</template>
+
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator';
+
+@Component({})
+export default class App extends Vue {
+  mounted() {
+    this.$emit("mounted");
+  }
+}
+</script>
+
 <style lang="scss">
 body {
   padding: 0;
@@ -61,59 +96,3 @@ body {
   border-bottom-color: blue;
 }
 </style>
-
-<template>
-  <div id="app">
-    <aside class="sidebar">
-      <div class="buttons">
-        <button v-on:click="state.setMode('devices')">Devices</button>
-        <button v-on:click="state.setMode('staff')">Staff</button>
-      </div>
-      <portal-target name="dest-list">
-        here sidebar
-      </portal-target>
-    </aside>
-
-    <div class="content">
-      <portal-target name="dest-content">
-        here content 11
-      </portal-target>
-    </div>
-
-    <div class="hidden_area">
-      <!-- <Devices v-bind:is-active="state.mode == 'devices'"/> -->
-      <!-- <Staff v-bind:is-active="state.mode == 'staff'"/> -->
-      <Assign/>
-    </div>
-  </div>
-</template>
-
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator';
-import Devices from './devices/Devices.vue';
-import DevicesScope from './devices/DevicesScope';
-import Staff from './staff/Staff.vue';
-import Assign from './assign/Assign.vue';
-import { Observer } from "mobx-vue";
-import AppModel from './AppModel';
-
-@Observer
-@Component({
-  components: {
-    Devices,
-    Staff,
-    Assign
-  }
-})
-export default class App extends Vue {
-  state:AppModel = new AppModel();
-
-  mounted() {
-    let devices = new DevicesScope();
-  }
-}
-
-/**
- * Can't rely on Vue tree to compose features, should be just ts objects.
- */
-</script>

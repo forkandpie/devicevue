@@ -1,13 +1,40 @@
-import { Component, Vue } from 'vue-property-decorator';
 import Devices from './Devices.vue';
+import DeviceModel from './DeviceModel';
+import { reaction } from 'mobx';
+import AppModel from '../AppModel';
 
 export default class DevicesScope {
-    constructor() {
+  
+  constructor(appModel:AppModel) {
 
-        console.log("created scope");
+    let state:DeviceModel = new DeviceModel();
+    var data = {
+      selected: state.selected,
+      devices: state.devices,
+      selectDevice: state.selectDevice,
+      isActive: true
+    };
 
-        new Vue({
-            render: h => h(Devices)
-        }).$mount('.hidden_area');
-    }
+    reaction(
+      () => state.devices,
+      devices => {data.devices = devices;}
+    );
+    
+    reaction(
+      () => state.selected,
+      selected => {data.selected = selected;}
+    );
+
+    reaction(
+      () => appModel.mode,
+      mode => data.isActive = mode=="devices"
+    );
+    
+    new Devices({
+      el: ".hidden_area",
+      data: data,
+    });
+
+    state.fetchDevices();
+  }
 }

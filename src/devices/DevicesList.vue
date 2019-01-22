@@ -44,6 +44,7 @@ import { Component, Vue } from 'vue-property-decorator';
 @Component({
     props:{
         devicesList: Array,
+        label: String,
         selectDevice: Function
     }
 })
