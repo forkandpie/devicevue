@@ -1,8 +1,9 @@
 import { observable, action } from "mobx";
+import Device from './Device';
 
 export default class DeviceModel {
-  @observable.ref devices = [];
-  @observable selected = null;
+  @observable.ref devices: Array<Device> = [];
+  @observable selected: Device | null = null;
 
   @action.bound async fetchDevices() {
     this.devices = await fetch("devices.json")

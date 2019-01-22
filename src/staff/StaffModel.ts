@@ -1,8 +1,9 @@
 import { observable, action } from "mobx";
+import Person from './Person';
 
 export default class StaffModel {
-  @observable.ref staff = [];
-  @observable selected = null;
+  @observable.ref staff:Array<Person> = [];
+  @observable selected:Person | null = null;
 
   @action.bound async fetchStaff() {
     this.staff = await fetch("staff.json")
