@@ -1,6 +1,7 @@
 <style>
 .description {
     text-align: left;
+    height: 70vh;
 }
 </style>
 

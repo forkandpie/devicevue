@@ -4,23 +4,25 @@ import { reaction } from 'mobx';
 import AppModel from '../AppModel';
 export default class StaffScope {
 
+  public state:StaffModel;
+
   constructor(appModel:AppModel) {
 
-    let state:StaffModel = new StaffModel();
+    this.state = new StaffModel();
     var data = {
-      staff: state.staff,
-      selected: state.selected,
-      selectPerson: state.selectPerson,
+      staff: this.state.staff,
+      selected: this.state.selected,
+      selectPerson: this.state.selectPerson,
       isActive: false
     };
 
     reaction(
-      () => state.staff,
+      () => this.state.staff,
       staff => {data.staff = staff;}
     );
     
     reaction(
-        () => state.selected,
+        () => this.state.selected,
         selected => {data.selected = selected;}
     );
     
@@ -34,6 +36,6 @@ export default class StaffScope {
       data: data
     });
 
-    state.fetchStaff();
+    this.state.fetchStaff();
   }
 }

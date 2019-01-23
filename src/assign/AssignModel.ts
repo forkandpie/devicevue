@@ -2,7 +2,7 @@ import { observable, action } from 'mobx';
 
 export default class AssignModel {
 
-  @observable assignments = [];
+  @observable.ref assignments:Array<AssignmentData> = [];
 
   @action.bound async fetchData() {
     this.assignments = await fetch("assignments.json")
@@ -10,13 +10,21 @@ export default class AssignModel {
       .then(response => response.log);
   }
 
-  // getDevicesByPerson(personId: String):Array<any> {
-  //   return this.assignments
-  //     .filter(assignment => assignment.personId == personId);
-  // }
+  @action.bound getByPersonId(personId:string):Array<AssignmentData> {
+    return this.assignments
+      .filter(assignment => assignment.personId == personId);
+  }
 
-  // getStaffByDevice(deviceId: String):Array<any> {
-  //   return this.assignments
-  //     .filter(assignment => assignment.deviceId == deviceId);
-  // }
+  @action.bound getByDeviceId(deviceId:string):Array<AssignmentData> {
+    console.log(this.assignments, deviceId);
+    return this.assignments
+      .filter(assignment => assignment.deviceId == deviceId);
+  }
+}
+
+interface AssignmentData {
+  personId:string;
+  deviceId:string;
+  date:string;
+  id:number;
 }

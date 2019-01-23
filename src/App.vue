@@ -15,10 +15,15 @@
       <portal-target name="dest-content">
         here content 11
       </portal-target>
+
+      <portal-target name="dest-subcontent">
+        here content 22
+      </portal-target>
     </div>
 
     <div class="hidden_area"></div>
     <div class="hidden_area1"></div>
+    <div class="hidden_area2"></div>
   </div>
 </template>
 
@@ -59,6 +64,7 @@ body {
 
 .content {
   padding: 20px;
+  width: 100%;
 }
 
 .sidebar {

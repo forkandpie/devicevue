@@ -2,6 +2,7 @@ import App from './App.vue';
 import AppModel from '@/AppModel';
 import DevicesScope from './devices/DevicesScope';
 import StaffScope from './staff/StaffScope';
+import AssignScope from '@/assign/AssignScope';
 
 export default class AppScope {
 
@@ -16,8 +17,9 @@ export default class AppScope {
     });
 
     vm.$on('mounted', function () {
-      new DevicesScope(state);
-      new StaffScope(state);
+      let devices = new DevicesScope(state);
+      let staff = new StaffScope(state);
+      new AssignScope(devices.state, staff.state, state);
     });
     
     vm.$mount('#app');

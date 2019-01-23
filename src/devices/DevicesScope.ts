@@ -4,24 +4,27 @@ import { reaction } from 'mobx';
 import AppModel from '../AppModel';
 
 export default class DevicesScope {
-  
+
+  public state:DeviceModel;
+
   constructor(appModel:AppModel) {
 
-    let state:DeviceModel = new DeviceModel();
+    this.state = new DeviceModel();
+
     var data = {
-      selected: state.selected,
-      devices: state.devices,
-      selectDevice: state.selectDevice,
+      selected: this.state.selected,
+      devices: this.state.devices,
+      selectDevice: this.state.selectDevice,
       isActive: true
     };
 
     reaction(
-      () => state.devices,
+      () => this.state.devices,
       devices => {data.devices = devices;}
     );
     
     reaction(
-      () => state.selected,
+      () => this.state.selected,
       selected => {data.selected = selected;}
     );
 
@@ -35,6 +38,8 @@ export default class DevicesScope {
       data: data,
     });
 
-    state.fetchDevices();
+    this.state.fetchDevices();
   }
+
+  getState():DeviceModel { return this.state; }
 }
